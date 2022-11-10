@@ -1,4 +1,4 @@
-package AbstractClasses;
+package com.example.demo.AbstractClasses;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -12,7 +12,7 @@ abstract public class BaseSeleniumTest {
     protected WebDriver driver;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         WebDriverManager.chromedriver().setup();//скачивает хром драйвер и прописывает его во всех путях для использования
         driver = new ChromeDriver();
         driver.manage().window().maximize();//запуск браузера на весь экран
@@ -22,7 +22,12 @@ abstract public class BaseSeleniumTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         driver.close();//Закрывает драйвер
         driver.quit();//Закрывает браузер
     }
