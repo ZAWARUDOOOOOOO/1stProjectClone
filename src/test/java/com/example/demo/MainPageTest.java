@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.AbstractClasses.BaseSeleniumTest;
+import com.example.demo.pages.GooglePlayBspbPage;
 import com.example.demo.pages.TgLinkPage;
 import org.junit.Assert;
 import org.junit.Before;
@@ -41,18 +42,19 @@ public class MainPageTest extends BaseSeleniumTest {
         Assert.assertTrue(displayedCorrectly);
     }
 
+    //иногда падает, похоже, что телеграм иногда лагает и не грузится
     @Test
-    public void checkTgLearnMoreButton() {//написать баг репорт по driver.switchTo().alert().dismiss()
+    public void checkTgLearnMoreButton() { //как работать с тг алертом
         TgLinkPage tgLinkPage = mainPage.goToTelegram();
         tgLinkPage.switchToWindow();
         Boolean isTgLogoDisplayed = tgLinkPage.isTgLogoDisplayed();
-        Boolean isTgLinkCorrect = tgLinkPage.isTgLinkCorrect();
+        Boolean isAppButtonDisplayed = tgLinkPage.isTgAppButtonDisplayed();
         Assert.assertTrue(isTgLogoDisplayed);
-        Assert.assertTrue(isTgLinkCorrect);
+        Assert.assertTrue(isAppButtonDisplayed);
     }
 
     @Test
-    public void checkActualNewsSwitching() {
+    public void checkActualSwitching() {
         Boolean isSwitchingCorrect = mainPage.isActualSwitchingCorrectly();
         Assert.assertTrue(isSwitchingCorrect);
     }
@@ -66,7 +68,10 @@ public class MainPageTest extends BaseSeleniumTest {
 
     @Test
     public void checkGooglePlayLink() {
-        String developerName = mainPage.goToGooglePlay().getDeveloperName();
-        Assert.assertEquals(developerName, "ПАО «Банк «Санкт-Петербург»");
+        GooglePlayBspbPage gpPage = mainPage.goToGooglePlay();
+        Boolean isGpHeaderDisplayed = gpPage.isGpHeaderDisplayed();
+        String developerName = gpPage.getDeveloperName();
+        Assert.assertTrue(isGpHeaderDisplayed);
+        Assert.assertEquals(developerName, "ПАО «Банк «Санкт-Петербург»", developerName);
     }
 }
