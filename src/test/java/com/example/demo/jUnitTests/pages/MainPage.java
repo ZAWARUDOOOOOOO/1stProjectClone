@@ -1,18 +1,19 @@
-package com.example.demo.pages;
+package com.example.demo.jUnitTests.pages;
 
-import com.example.demo.AbstractClasses.BaseSeleniumPage;
-import org.openqa.selenium.*;
+import com.example.demo.jUnitTests.AbstractClasses.BaseSeleniumPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class MainPage extends BaseSeleniumPage {
 
-    private final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    private final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     @FindBy(xpath = "//*[@id=\"app-wrapper\"]/div[2]")
     private WebElement header;
@@ -92,24 +93,12 @@ public class MainPage extends BaseSeleniumPage {
     }
 
     public FinanceExchangePage goToFinanceExchange() {
-//        Point point = financeExchangeButton.getLocation();//top left corner coordinates
-//        Dimension dimension = financeExchangeButton.getSize();
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(financeExchangeButton)
-//                .click()
-//                .build().perform();
-
-        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", financeExchangeButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", financeExchangeButton);
         return new FinanceExchangePage();
     }
 
     public GooglePlayBspbPage goToGooglePlay() {
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", footerGooglePlayButton);
-//        wait.until(ExpectedConditions.elementToBeClickable(footerGooglePlayButton));
-//        wait.until(ExpectedConditions.visibilityOf(footerGooglePlayButton));
-//        footerGooglePlayButton.click();
-
-        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", footerGooglePlayButton); //works
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", footerGooglePlayButton); //works
         return new GooglePlayBspbPage();
     }
 }

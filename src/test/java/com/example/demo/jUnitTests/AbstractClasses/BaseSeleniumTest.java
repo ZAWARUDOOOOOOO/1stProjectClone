@@ -1,4 +1,4 @@
-package com.example.demo.AbstractClasses;
+package com.example.demo.jUnitTests.AbstractClasses;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -7,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 abstract public class BaseSeleniumTest {
     protected WebDriver driver;
@@ -18,20 +16,19 @@ abstract public class BaseSeleniumTest {
         WebDriverManager.chromedriver().setup();//скачивает хром драйвер и прописывает его во всех путях для использования
         driver = new ChromeDriver();
         driver.manage().window().maximize();//запуск браузера на весь экран
-        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);//Ожидание страницы 10 секунд
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
         BaseSeleniumPage.setDriver(driver);
     }
 
     @After
     public void tearDown() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         driver.close();//Закрывает драйвер
         driver.quit();//Закрывает браузер
     }
-
 }

@@ -1,21 +1,15 @@
-package com.example.demo.pages;
+package com.example.demo.jUnitTests.pages;
 
-import com.example.demo.AbstractClasses.BaseSeleniumPage;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
+import com.example.demo.jUnitTests.AbstractClasses.BaseSeleniumPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class TgLinkPage extends BaseSeleniumPage {
+
 
     @FindBy(xpath = "//*[@class=\"tgme_logo\"]")
     private WebElement tgLogo;
@@ -28,9 +22,12 @@ public class TgLinkPage extends BaseSeleniumPage {
     }
 
     public void switchToWindow() {
+//        driver.switchTo().alert().accept();
         List<String> allWindowsArray = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(allWindowsArray.get(1));
     }
+
+
 
     public Boolean isTgAppButtonDisplayed() {
         return tgAppButton.isDisplayed();

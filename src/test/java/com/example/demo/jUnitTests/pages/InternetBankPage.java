@@ -1,6 +1,6 @@
-package com.example.demo.pages;
+package com.example.demo.jUnitTests.pages;
 
-import com.example.demo.AbstractClasses.BaseSeleniumPage;
+import com.example.demo.jUnitTests.AbstractClasses.BaseSeleniumPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

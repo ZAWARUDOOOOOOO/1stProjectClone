@@ -1,4 +1,4 @@
-package com.example.demo.AbstractClasses;
+package com.example.demo.jUnitTests.AbstractClasses;
 
 import org.openqa.selenium.WebDriver;
 
