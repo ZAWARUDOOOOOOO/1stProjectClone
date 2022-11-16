@@ -67,14 +67,12 @@ public class MainPage extends BaseSeleniumPage {
     public Boolean isCardsOpenedCorrectly() {
         Actions action = new Actions(driver);
         action.moveToElement(cards).perform();
-        Boolean isDebitCardsButtonDisplayed = driver.findElement(By.xpath("//*[@href=\"/retail/cards/debit\"]")).isDisplayed();
-        return isDebitCardsButtonDisplayed;
+        return driver.findElement(By.xpath("//*[@href=\"/retail/cards/debit\"]")).isDisplayed();
     }
 
     public Boolean isActualSwitchingCorrectly() {
         pensionServiceTab.click();
-        Boolean isLearnMoreButtonSwitchable = driver.findElement(By.xpath("//*[@href=\"/retail/pensionary/1000pens\"]")).isDisplayed();
-        return isLearnMoreButtonSwitchable;
+        return driver.findElement(By.xpath("//*[@href=\"/retail/pensionary/1000pens\"]")).isDisplayed();
     }
 
     public InternetBankPage goToInternetBank() {

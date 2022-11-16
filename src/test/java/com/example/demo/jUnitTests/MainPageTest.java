@@ -5,7 +5,6 @@ import com.example.demo.jUnitTests.pages.GooglePlayBspbPage;
 import com.example.demo.jUnitTests.pages.MainPage;
 import com.example.demo.jUnitTests.pages.TgLinkPage;
 import org.assertj.core.api.JUnitSoftAssertions;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -101,24 +100,4 @@ public class MainPageTest extends BaseSeleniumTest {
                 .as("Проверка имени разработчика банковского приложения")
                 .isEqualTo("ПАО «Банк «Санкт-Петербург»");
     }
-//    @Test
-//    public void test1(){
-//        assertThat(true)
-//                .as("Проверка true")
-//                .isTrue();
-//    }
-//    @Test
-//    public void test2(){
-//        assertThat(false)
-//                .as("Проверка false")
-//                .isTrue();
-//    }
-//    @Test
-//    public void test3(){
-//        Assert.assertTrue(true);
-//    }
-//    @Test
-//    public void test4(){
-//        Assert.assertTrue(false);
-//    }
 }
