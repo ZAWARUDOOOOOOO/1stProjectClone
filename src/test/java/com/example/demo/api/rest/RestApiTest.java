@@ -26,9 +26,9 @@ public class RestApiTest {
         softly.assertThat(response.getStatusCode())
                 .as("Проверка статус-кода постмана")
                 .isEqualTo(200);
-        softly.assertThat(args.contains("\"foo2\":\"bar2\""))
+        softly.assertThat(args)
                 .as("Проверка аргумента foo2 в ответе")
-                .isTrue();
+                .contains("\"foo2\":\"bar2\"");
     }
 
     @Test

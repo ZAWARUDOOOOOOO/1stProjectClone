@@ -8,9 +8,12 @@ import org.assertj.core.api.JUnitSoftAssertions;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.jupiter.api.condition.DisabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+//@DisabledOnOs(OS.WINDOWS)
 public class MainPageTest extends BaseSeleniumTest {
     private MainPage mainPage;
 
