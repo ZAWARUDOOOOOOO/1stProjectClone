@@ -1,20 +1,21 @@
 #!groovy
 
-properties{
-    [disableConcurrentBuilds()]
-}
+properties([disableConcurrentBuilds()])
 
-pipeline{
-    agent{
+pipeline {
+    agent {
         label 'master'
     }
-    options{
+    trigger {
+        pollSCM('*****')
+    }
+    options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
     }
-    stages{
-        stage("First step"){
-            steps{
+    stages {
+        stage("First step") {
+            steps {
                 sh 'ssh 127.0.0.1 \'./gradlew clean test\''
             }
         }
